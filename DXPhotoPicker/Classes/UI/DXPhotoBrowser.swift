@@ -120,7 +120,6 @@ class DXPhotoBrowser: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     override func viewWillAppear(animated: Bool) {
-        DXLog("viewWillAppear")
         super.viewWillAppear(animated)
         previousStatusBarStyle = UIApplication.sharedApplication().statusBarStyle
         UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: animated)
@@ -144,11 +143,10 @@ class DXPhotoBrowser: UIViewController, UICollectionViewDelegate, UICollectionVi
         NSObject.cancelPreviousPerformRequestsWithTarget(self)
         setControlsHidden(false, animated: false)
         UIApplication.sharedApplication().setStatusBarStyle(previousStatusBarStyle, animated: animated)
-        super.viewDidDisappear(animated)
+        super.viewWillDisappear(animated)
     }
     
     override func viewDidAppear(animated: Bool) {
-        DXLog("viewDidAppear")
         super.viewDidAppear(animated)
         viewIsActive = true
     }
